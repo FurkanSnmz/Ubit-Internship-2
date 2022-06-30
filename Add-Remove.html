@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add - Remove</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+</head>
+<body>
+    <div id="App">
+        <div>
+        <h1><u>Urunler Listesi</u></h1>
+        <ul>
+            <li class="forkullanimi" v-for="product in products" >
+                <p>{{ product.title }}</p>
+                <p>{{ product.number }}</p>
+                <button v-if="product.number > 0" @click = "addToBasket(product)">Sepete ekle</button>
+                <p v-if="product.number == 0">Sold out</p>
+            </li>
+        </ul>
+        <h1><u>Sepetim</u></h1>
+        <ul v-if="basket.length > 0">
+            <li class="forkullanimi" v-for="(product, i) in basket" >
+                <p>{{ product.title }}</p>
+                <p>{{ product.number }}</p> 
+                <button v-if="product.number > 0" @click = "removeFromBasket(product, i)">Sepetten sil</button>
+            </li>
+        </ul>
+        <p v-else>Sepette ürün yok.</p>
+        </div>
+    </div> 
+    <script src = "Add-Remove.js"></script>
+</body>
+</html>
