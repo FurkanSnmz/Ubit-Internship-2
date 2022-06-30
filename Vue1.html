@@ -1,0 +1,22 @@
+<html lang ="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name ="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue - Project</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+</head>
+<body>
+    <h1>Vue - Project</h1>
+    <div id ="App">
+      <div v-if="showBooks"> 
+        <p>{{ title }} - {{ author }} - {{age}}</p>
+      </div>
+       <button @click="toogleshowbooks">
+        <span v-if="showBooks">Hide Books</span>
+        <span v-else>Show Books</span>
+       </button>
+       <div v-show="showBooks">Currently showing books</div>
+    </div>   
+    <script src="Vue1.js"></script>
+</body>
+</html>
