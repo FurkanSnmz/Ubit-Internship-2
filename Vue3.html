@@ -1,0 +1,52 @@
+<html lang ="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name ="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project - Vue</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    <style>
+     body{
+        background: #eeee;
+        max-width: 960px;
+        margin: 20px auto;
+        }
+        p, h3 , ul{
+        margin: 0;
+        padding: 0;
+        }
+        li{
+    list-style-type: none;
+        background: #fff;
+        margin: 20px auto;
+        padding: 10px 20px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        }
+        li.fav{
+           background: #04eff3; 
+           color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1><u>Stephen King Books</u></h1>
+    <div id ="App">
+      <a :href="url">WebSite</a>
+      <div v-if="showBooks"> 
+       <ul>
+        <li v-for="book in filteredBooks" :class="{ fav: book.isFav }" @click="toogleFav(book)">
+        <img :src="book.img" :alt="book.title" height="100"> 
+        <h3> {{ book.title }}</h3>
+        <h3>{{ book.author }}</h3>
+      </li>
+       </ul>
+      </div>
+     <button @click="toogleshowbooks">
+        <span v-if="showBooks">Hide Books</span>
+        <span v-else>Show Books</span>
+     </button>
+    <script src="Vue3.js"></script>
+</body>
+</html>
